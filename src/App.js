@@ -1,0 +1,1 @@
+import React from 'react'; function App() { return ( <div className="App"> <header className="App-header"> <h1>Welcome to Our House Cleaning Service</h1> <p>We provide professional and affordable cleaning services for your home.</p> </header> </div> ); } export default App;
