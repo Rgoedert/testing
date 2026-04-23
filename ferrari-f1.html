@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ferrari F1 Blog Posts</title>
+</head>
+<body>
+    <h1>Ferrari F1 Blog Posts</h1>
+    <div id="blog-posts"></div>
+    <script>
+        fetch('ferrari-f1.md')
+           .then(response => response.text())
+           .then(data => {
+                const posts = data.split('---');
+                const blogPosts = posts.map(post => {
+                    const lines = post.trim().split('\n');
+                    const title = lines.shift();
+                    const content = lines.join('<br>');
+                    return `<div><h2>${title}</h2><p>${content}</p></div>`;
+                });
+                document.getElementById('blog-posts').innerHTML = blogPosts.join('');
+            });
+    </script>
+</body>
+</html>
